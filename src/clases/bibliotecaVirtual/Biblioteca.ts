@@ -8,8 +8,7 @@ export class Biblioteca {
 
   agregarLibro (libro: Libro) {
     this.librosDisponibles.push(libro)
-    console.log(`El Libro: ${libro.titulo} se agregó a la biblioteca`)
-    // console.log(this.librosDisponibles)
+    console.log(`El Libro: "${libro.titulo}" se agregó a la biblioteca`)
   }
 
   buscarLibroDisponible (libro: Libro) {
@@ -35,10 +34,9 @@ export class Biblioteca {
     if (lib) {
       this.librosDisponibles.splice(this.librosDisponibles.indexOf(lib), 1)
       this.librosPrestados.push(lib)
-      console.log(`El libro ${lib.titulo} se prestó con éxito`)
+      console.log(`El libro "${lib.titulo}" se prestó con éxito.\n`)
     } else {
-      console.log('El libro no existe en la biblioteca')
-      // console.log(this.librosPrestados)
+      console.log('El libro no existe en la biblioteca.\n')
     }
     return lib
   }
@@ -48,9 +46,9 @@ export class Biblioteca {
     if (lib) {
       this.librosPrestados.splice(this.librosPrestados.indexOf(lib), 1)
       this.librosDisponibles.push(lib)
-      console.log(`El libro ${lib.titulo} se devolvió con éxito`)
+      console.log(`El libro "${lib.titulo}" se devolvió con éxito.\n`)
     } else {
-      console.log('El libro no se ah prestado')
+      console.log(`El libro "${libro.titulo}" no fue prestado.\n`)
     }
     return lib
   }
@@ -58,13 +56,18 @@ export class Biblioteca {
 
 const biblioteca = new Biblioteca()
 
-const miLibro1 = new Libro('El Hobbit', 'J.R.R. Tolkien')
-const miLibro2 = new Libro('La casa de papel', 'Álex Pina')
-const miLibro3 = new Libro('El Señor de los Anillos', 'J.R.R. Tolkien')
+const miLibro1 = new Libro('Mi libro numero 1', 'Autor numero 1')
+const miLibro2 = new Libro('Mi libro numero 2', 'Autor numero 2')
+const miLibro3 = new Libro('Mi libro numero 3', 'Autor numero 2')
 
+console.log('\n>>>>> Agregar libros <<<<<<\n')
 biblioteca.agregarLibro(miLibro1)
 biblioteca.agregarLibro(miLibro2)
 biblioteca.agregarLibro(miLibro3)
 
+console.log('\n>>>>> Prestar libro <<<<<<\n')
 biblioteca.prestarLibro(miLibro1)
+
+console.log('>>>>> Devolver libro <<<<<<\n')
 biblioteca.devolverLibro(miLibro1)
+biblioteca.devolverLibro(miLibro2)
