@@ -1,9 +1,10 @@
 export interface Animal {
     nombre: string
     genero: string
-    nivelDeFelicidad: number
+    nivelFelicidad: number
+    energia: number
 
-    alimentar(): number
-    jugar(): number
-    cuidar_mascota(): number
+    alimentar(): void
+    jugar(): void
+    dormir(): void
 }
